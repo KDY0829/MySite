@@ -532,7 +532,7 @@ header {
   }
 
   .projects {
-    grid-template-columns: repeat(2, lfr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .license {
