@@ -21,6 +21,7 @@
 }
 
 /* Global */
+
 :root {
   --color-primary: var(--color-black);
   --color-primary-variant: var(--color-gray);
@@ -34,7 +35,36 @@
   --color-orange: #fd6413;
   --color-white: #fff;
 
+  --color-about: rgb(109, 134, 158);
+
   --size-max-width: 1200px;
+}
+
+body.light-mode {
+  --color-primary: #ffffff;
+  --color-primary-variant: #f5f7fa;
+  --color-gray: #e2e6eb;
+
+  --color-text: #111111;
+  --color-black: #ffffff;
+
+  --color--accent: #03ef89;
+  --color-accent-variant: #dad8d8;
+
+  --color-about: #03ef89;
+
+  background-color: #ffffff;
+}
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-animate.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 * {
@@ -124,7 +154,7 @@ header {
 }
 
 .header__menu__item.active {
-  border: 1px solid var(--color--accent);
+  border: 2px solid var(--color--accent);
   border-radius: 5px;
 }
 
@@ -134,6 +164,7 @@ header {
   color: var(--color-text);
   padding: 7rem 1rem 5rem; /* 위 아래 좌우 */
   text-align: center;
+  position: relative;
 }
 
 .home__avatar {
@@ -173,7 +204,24 @@ header {
   outline: 2px solid var(--color--accent);
 }
 
+.darkmode-btn {
+  position: absolute; /* ← 화면 기준 X, home 기준으로 잡힘 */
+  top: 7rem; /* 헤더보다 살짝 아래 */
+  right: 1.5rem; /* 오른쪽 정렬 */
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--color--accent);
+  background: transparent;
+  color: var(--color-text);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 /* about */
+#about {
+  background-color: var(--color-about);
+}
+
 .majors {
   display: flex;
   justify-content: space-between;
@@ -396,7 +444,21 @@ header {
   background-color: var(--color--accent);
 }
 
+.project {
+  opacity: 1;
+  transition: opacity 0.4s ease; /* ← 부드러운 사라짐/나타남 */
+}
+
+.project.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* license */
+#license {
+  background-color: var(--color-about);
+}
+
 .licenses {
   margin: 3rem;
 }
@@ -426,7 +488,7 @@ header {
 }
 
 .license__bubble__name {
-  color: var(--color--accent);
+  color: black;
   font-weight: bold;
   filter: brightness(70%);
 }
